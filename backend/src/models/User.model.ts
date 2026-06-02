@@ -15,7 +15,7 @@ const userSchema = new mongoose.Schema<IUser, Usermodel, IUserMethods>(
     password: {
       type: String,
       required: true,
-      maxlength: 6,
+      minlength: 6,
     },
     refreshToken: {
       type: String,
@@ -26,7 +26,7 @@ const userSchema = new mongoose.Schema<IUser, Usermodel, IUserMethods>(
 
 userSchema.pre("save", async function () {
   if (!this.isModified("password")) return;
-  this.password = await bcrypt.hash("password", 10);
+  this.password = await bcrypt.hash(this.password, 10);
 });
 
 userSchema.methods.isPasswordCorrect = async function (password: string) {

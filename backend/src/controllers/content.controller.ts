@@ -31,11 +31,12 @@ export const getContents = asynHandler(async (req, res) => {
   const userId = req.user?._id;
   if (!userId) throw new ApiError(401, "User not authenticated");
 
-  const contents = await Content.findById(userId).populate(
+  const contents = await Content.find({ userId: userId }).populate(
     "userId",
     "username",
   );
-  if (!contents) throw new ApiError(404, "No content found for this user");
+  if (contents.length === 0)
+    throw new ApiError(404, "No content found for this user");
 
   return res
     .status(200)

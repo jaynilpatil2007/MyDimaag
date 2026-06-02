@@ -63,8 +63,8 @@ export const signup = asynHandler(async (req, res) => {
 
   return res
     .status(201)
-    .cookie("accessToken", accessToken)
-    .cookie("refreshToken", refreshToken)
+    .cookie("accessToken", accessToken, options)
+    .cookie("refreshToken", refreshToken, options)
     .json(new ApiResponse(200, createdUser, "User registered successfull"));
 });
 
@@ -76,6 +76,7 @@ export const login = asynHandler(async (req, res) => {
   if (!user) throw new ApiError(400, "User not found");
 
   const isPasswordValid = await user.isPasswordCorrect(password);
+  console.log(isPasswordValid);
   if (!isPasswordValid) throw new ApiError(400, "Incorrect Password");
 
   const { accessToken, refreshToken } = await generateAccessRefreshToken(
