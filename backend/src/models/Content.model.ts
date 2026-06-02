@@ -1,12 +1,13 @@
 import mongoose from "mongoose";
+import { type IContent, contentTypes } from "../types/content.types.js";
 
-const contentSchema = new mongoose.Schema(
+const contentSchema = new mongoose.Schema<IContent>(
   {
     link: {
       type: String,
       required: true,
     },
-    type: {
+    types: {
       type: String,
       enum: contentTypes,
       required: true,
@@ -29,4 +30,4 @@ const contentSchema = new mongoose.Schema(
   { timestamps: true },
 );
 
-export const Content = mongoose.model("Content", contentSchema);
+export const Content = mongoose.model<IContent>("Content", contentSchema);
