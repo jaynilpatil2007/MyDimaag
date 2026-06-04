@@ -1,13 +1,16 @@
-import Button from "./components/ui/Button"
-import { PlusIcon } from "./Icons/PlusIcon"
-import { ShareIcon } from "./Icons/ShareIcon"
+import NotesCard from "./components/ui/NotesCard"
 
 function App() {
   return (
     <>
-      <div className="flex justify-end gap-5">
-        <Button variants="secondary" startIcon={<ShareIcon size="md"/>} size="md" text="Share" onClick={() => {console.log("Hello")}}/>
-        <Button variants="primary" startIcon={<PlusIcon size="md"/>} size="md" text="Add Document" onClick={() => {console.log("Hello")}}/>
+      <div className="h-screen flex justify-center items-center">
+        <NotesCard 
+          type="keyPoints"
+          title="Atomic habits -key takeaways" 
+          content={"Started with 10 min box breathing. Felt grounded and clear. Intention for today: stay present, avoid reactive responses."}
+          tags={["Wellness"]}
+          time="yesterday"    
+        />
       </div>
     </>
   )
