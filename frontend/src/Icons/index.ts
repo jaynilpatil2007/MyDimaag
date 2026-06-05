@@ -1,8 +1,9 @@
 export interface IconProps {
   size: "sm" | "md" | "lg";
+  colour?: string;
 }
 
-export const defaultCSS = "text-[#2B7FFF]/90 stroke-2"
+export const defaultCSS = "text-[#2B7FFF]/90 stroke-2";
 
 export const IconSizeVariants = {
   sm: "size-3",

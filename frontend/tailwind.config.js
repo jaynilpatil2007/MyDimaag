@@ -9,9 +9,27 @@ export default {
       colors: {
         purple: {
           300: "#e0e7fe",
-          500: "#3e38a7",
+          500: "#615FFF",
           600: "#5046e4"
-        }
+        },
+        blue: {
+          500: "#2B7FFF"
+        },
+        violet: {
+          500: "#8E51FF"
+        },
+        sky: {
+          500: "#00A6F4"
+        },
+        teal: {
+          500: "#00BBA7"
+        },
+        orange: {
+          500: "#FF6900"
+        },
+        green: {
+          500: "#00C950"
+        },
       }
     },
   },
