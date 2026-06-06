@@ -1,10 +1,12 @@
+import Sidebar from "./components/Sidebar"
 
 
 function App() {
   return (
     <>
-      <div className="h-screen flex flex-auto items-center">
-      </div>
+    <div className="h-screen">
+      <Sidebar />
+    </div>
     </>
   )
 }
